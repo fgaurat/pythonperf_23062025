@@ -14,8 +14,14 @@ def main():
     print(first_value)
 
     d = deque(l)
+
     d.appendleft(-10)
     print(d)
+    first_value = d.popleft()
+    print(d)
+    print(first_value)
+    
+    print(l)
 
 if __name__ == '__main__':
     main()
