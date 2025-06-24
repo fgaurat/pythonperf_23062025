@@ -1,5 +1,6 @@
 from ICalcGeo import ICalcGeo
 import math
+
 class Cercle(ICalcGeo):
 
     def __init__(self, rayon=1):
@@ -15,7 +16,7 @@ class Cercle(ICalcGeo):
 
     def __str__(self):
         return f"{__class__.__name__}({self.__rayon})"
-    
+
     @property
-    def surface(self):
+    def surface(self) -> float:
         return math.pi*self.__rayon**2

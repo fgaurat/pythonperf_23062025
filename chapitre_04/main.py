@@ -11,5 +11,12 @@ def main():
     print(f"{ce.rayon=}")
     print(f"{ce.surface=}")
 
+    print(type(c))
+    print(type(Carre))
+
+
+    print(type(2))
+    print(type(int))
+
 if __name__ == '__main__':
     main()
