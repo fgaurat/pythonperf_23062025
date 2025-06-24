@@ -26,7 +26,8 @@ def main():
     print(r1)
     print(hex(id(r)))
     print(hex(id(r1)))    
-
+    r.longueur = 12
+    r.largeur = 2  
 
 if __name__ == '__main__':
     main()

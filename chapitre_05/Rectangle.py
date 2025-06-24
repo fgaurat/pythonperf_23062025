@@ -1,5 +1,6 @@
 
 from SingletonMeta import SingletonMeta
+from SingletonDeco import singleton
 
 
 # class Rectangle(metaclass=SingletonMeta):
