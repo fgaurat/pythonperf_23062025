@@ -39,7 +39,7 @@ def main():
     #     print("erreur",e)
     #     traceback.print_exc()
     except Exception as e:
-        print("erreur",print("erreur",e.__class__.__name__))
+        print("erreur",e.__class__.__name__)
         traceback.print_exc()
     else:
         print("pas d'erreur")
