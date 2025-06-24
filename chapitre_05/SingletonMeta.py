@@ -8,6 +8,6 @@ class SingletonMeta(type):
         if self.instance is None:
             self.instance = super().__call__(*args,**kwargs)
         else:
-            self.instance = super().__init__(*args,**kwargs)
+            self.instance.__init__(*args,**kwargs)
 
         return self.instance

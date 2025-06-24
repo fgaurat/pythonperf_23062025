@@ -1,7 +1,9 @@
 
+from SingletonMeta import SingletonMeta
 
 
-
+# class Rectangle(metaclass=SingletonMeta):
+@singleton
 class Rectangle:
     __slots__ = "__longueur","__largeur"
     __cpt = 0
