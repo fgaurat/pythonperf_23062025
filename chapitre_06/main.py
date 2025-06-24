@@ -25,7 +25,11 @@ class D(B,C):
 
 def main():
     
-    print(D.mro())
+    # print(D.mro())
+    # d,b,c,a,*r = D.mro()
+
+    # o = a()
+    # o.show()
     d = D()
     d.show()
 
