@@ -1,7 +1,8 @@
+from abc import ABC,abstractmethod
 
-
-class ICalcGeo:
+class ICalcGeo(ABC):
 
     @property
+    @abstractmethod
     def surface(self):
-        raise NotImplementedError("surface not implemented")
+        pass
