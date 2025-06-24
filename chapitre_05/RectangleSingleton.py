@@ -3,9 +3,18 @@
 
 
 class RectangleSingleton:
+    instance = None
+
+
     __slots__ = "__longueur","__largeur"
     __cpt = 0
-
+    
+    def __new__(cls): 
+        "méthode de construction standard en Python"
+        if cls.instance is None:
+            cls.instance = object.__new__(cls)
+        return cls.instance
+    
     # initialisateur (constructeur)
     def __init__(self,longueur=1, largeur=1): # self -> this
         assert longueur>0 and largeur>0
