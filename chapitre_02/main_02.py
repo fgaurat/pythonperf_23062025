@@ -1,5 +1,4 @@
-
-
+from functools import wraps
 
 # def call_say_hello(name:str)->str:
 #     print("in",name)
@@ -8,15 +7,19 @@
 #     return s
 
 
-def do_log(func):
+def do_log(log_file):
+    def decorator(func ):
+        @wraps(func)
+        def wrapper(*args,**kwargs):
+            print(f"write log to {log_file} in ",args,kwargs)
+            r = func(*args,**kwargs)
+            print(f"write log to {log_file} out",r)
+            return r
+        
+        return wrapper
 
-    def wrapper(*args,**kwargs):
-        print("in",args,kwargs)
-        r = func(*args,**kwargs)
-        print("out",r)
-        return r
-    
-    return wrapper
+    return decorator
+
 
 def do_secu(func):
 
@@ -27,9 +30,11 @@ def do_secu(func):
     
     return wrapper
 
+# do_log | do_secu | do_log say_hello
+# @do_log('lefichier.log')
+# @do_secu
 
-    
-@do_log
+@do_log('lefichier.log')
 def say_hello(name:str)->str:
     """
     Dire Bonjour à name
@@ -38,8 +43,17 @@ def say_hello(name:str)->str:
     return s
 
 def main():
+    # r = call_say_hello('Fred')
     r = say_hello('Fred')
     print(r)
 
+    print(say_hello.__name__)
+    print(say_hello.__doc__)
+
 if __name__ == '__main__':
     main()
+
+
+
+
+
