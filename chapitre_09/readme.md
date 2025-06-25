@@ -7,4 +7,6 @@
 ##  ThreadPool
 0.135s
 
-
+## Async
+- 0.491s
+0.117s

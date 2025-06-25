@@ -15,6 +15,7 @@ async def main():
     coroutines = [add(3,4),add(1,4),add(2,4),add(3,5)]
     
     results = await asyncio.gather(*coroutines)
+    # results = await asyncio.gather(add(3,4),add(1,4),add(2,4),add(3,5))
     print(results)
     # print('Hello ...')
     # await asyncio.sleep(1)
