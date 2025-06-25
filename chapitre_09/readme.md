@@ -10,3 +10,5 @@
 ## Async
 - 0.491s
 0.117s
+## Async Httpx
+0.187s

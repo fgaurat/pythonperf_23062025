@@ -1,4 +1,5 @@
 import requests
+import httpx
 from bs4 import BeautifulSoup
 from pprint import pprint
 import time
@@ -16,7 +17,6 @@ def requests_download_and_save(url,log_file):
 # def get_result(url):
 #     return requests.get(url,verify=False)
 
-
 async def async_requests_download_and_save(url,log_file):
     url_log_file = f"{url}{log_file}"
     loop = asyncio.get_event_loop()
@@ -27,6 +27,15 @@ async def async_requests_download_and_save(url,log_file):
     
     with open(log_file,"w") as f:
         f.write(response.text)
+
+async def async_httpx_download_and_save(url,log_file):
+    url_log_file = f"{url}{log_file}"
+
+    async with httpx.AsyncClient() as client:
+        response = await client.get(url_log_file)
+
+        with open(log_file,"w") as f:
+            f.write(response.text)
 
 async def main():
     start = time.perf_counter()
@@ -39,7 +48,7 @@ async def main():
 
     all_coroutines=[]
     for log_file in all_a:
-        all_coroutines.append(async_requests_download_and_save(url,log_file))
+        all_coroutines.append(async_httpx_download_and_save(url,log_file))
 
     await asyncio.gather(*all_coroutines)
 
