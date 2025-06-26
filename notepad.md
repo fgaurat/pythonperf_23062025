@@ -49,7 +49,7 @@ https://docs.python.org/3/library/csv.html#csv.DictReader
 https://sqlitebrowser.org/dl/
 
 
-
+```sql
 CREATE TABLE "customers_tbl" (
 	"id"	INTEGER,
 	"first_name"	TEXT,
@@ -59,7 +59,7 @@ CREATE TABLE "customers_tbl" (
 	"ip_address"	TEXT,
 	PRIMARY KEY("id" AUTOINCREMENT)
 );
-
+```
 https://docs.python.org/3/library/sqlite3.html
 
 
@@ -70,7 +70,7 @@ https://logs.eolem.com/
 https://n8n.io/
 
 
-
+```
 	"Python main": {
 		"prefix": "pymain",
 		"body": [
@@ -82,7 +82,7 @@ https://n8n.io/
 		],
 		"description": "Python main"
 	}
-    
+```  
 https://docs.python.org/3/tutorial/stdlib.html#internet-access
 
 
@@ -130,21 +130,25 @@ docker run -d -p 5672:5672 rabbitmq
 docker ps  
 
 # docker pull rabbitmq
-# docker run -d -p 5672:5672 rabbitmq
-
+```
+docker run -d -p 5672:5672 rabbitmq
+```
 # pour Windows : 
-# celery -A celery_tasks worker --loglevel=INFO -P solo 
+```
+celery -A celery_tasks worker --loglevel=INFO -P solo 
+```
 
 # pour les autres 
-# celery -A celery_tasks worker --loglevel=INFO
-
+```
+celery -A celery_tasks worker --loglevel=INFO
+```
 
 
 
 https://flask.palletsprojects.com/en/stable/quickstart/
 
 https://flask.palletsprojects.com/en/stable/installation/
-
+```
 @app.route("/")
 def index():
     html="<table>"
@@ -160,10 +164,11 @@ def index():
         </tr>"""
     html+="</table>"
     return html
-    
+```    
 ## Emmet
+```
 div#toto.tutu.tata>ul>li*3
-
+```
 
 https://getbootstrap.com/
 
