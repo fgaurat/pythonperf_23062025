@@ -1,7 +1,7 @@
 ## Mono thread
 0.471s
 
-##  Thread
+##  Multi Threads
 0.151s
 
 ##  ThreadPool

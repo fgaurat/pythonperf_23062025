@@ -6,27 +6,7 @@ import time
 import asyncio
 import warnings
 warnings.filterwarnings('ignore')  # Suppress all warnings
-from functools import partial
 
-# async def requests_download_and_save(url,log_file):
-#     url_log_file = f"{url}{log_file}"
-#     response = await requests.get(url_log_file,verify=False)
-#     with open(log_file,"w") as f:
-#         f.write(response.text)
-
-# def get_result(url):
-#     return requests.get(url,verify=False)
-
-async def async_requests_download_and_save(url,log_file):
-    url_log_file = f"{url}{log_file}"
-    loop = asyncio.get_event_loop()
-    # response = await loop.run_in_executor(None,get_result,url_log_file)
-
-    get_function = partial(requests.get,url_log_file,verify=False)
-    response = await loop.run_in_executor(None,get_function)
-    
-    with open(log_file,"w") as f:
-        f.write(response.text)
 
 async def async_httpx_download_and_save(url,log_file):
     url_log_file = f"{url}{log_file}"

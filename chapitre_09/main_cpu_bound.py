@@ -41,7 +41,7 @@ def main():
     # 2.84s
     # run_seq()
     
-    # 2.71s
+    # 2.71s => Global Interpreter Lock
     # run_thread()
 
     # 1.46s

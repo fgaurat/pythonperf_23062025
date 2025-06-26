@@ -3,9 +3,13 @@ import threading
 lock = threading.Lock()
 
 def thread1():
+    l = []
+    for i in range(30):
+        l.append(f"thread 1 {i}")
+
     with lock:
-        for i in range(30):
-            print("thread 1",i)
+        for i in l:
+            print(l)
 
 def thread2():
     with lock:
@@ -19,7 +23,6 @@ def main():
 
     th1.start()
     th2.start()
-
 
     th1.join()
     
