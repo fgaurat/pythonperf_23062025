@@ -188,3 +188,9 @@ https://docs.streamlit.io/get-started/installation
 
 
 
+https://docs.streamlit.io/develop/api-reference/widgets/st.text_input
+
+
+https://fastapi.tiangolo.com/#installation
+
+
