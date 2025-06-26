@@ -144,7 +144,7 @@ docker ps
 https://flask.palletsprojects.com/en/stable/quickstart/
 
 https://flask.palletsprojects.com/en/stable/installation/
-
+```python
 @app.route("/")
 def index():
     html="<table>"
@@ -160,9 +160,11 @@ def index():
         </tr>"""
     html+="</table>"
     return html
-    
+```
 ## Emmet
+```
 div#toto.tutu.tata>ul>li*3
+
 
 
 https://getbootstrap.com/
