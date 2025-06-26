@@ -8,32 +8,55 @@ import warnings
 warnings.filterwarnings('ignore')  # Suppress all warnings
 
 
-async def async_httpx_download_and_save(url,log_file):
-    url_log_file = f"{url}{log_file}"
+async def download(queue_download:asyncio.Queue,queue_save:asyncio.Queue):
+    while True:
+        url,log_file = await queue_download.get()
+        url_log_file = f"{url}{log_file}"
+        async with httpx.AsyncClient(verify=False) as client:
+            response = await client.get(url_log_file)
+            save_param = log_file,response.text
+            queue_save.put_nowait(save_param)
+        
+        queue_download.task_done()
 
-    async with httpx.AsyncClient(verify=False) as client:
-        response = await client.get(url_log_file)
-
+async def save(queue_save:asyncio.Queue):
+    while True:
+        log_file,log_content = await queue_save.get()
         with open(log_file,"w") as f:
-            f.write(response.text)
+            f.write(log_content)
+        queue_save.task_done()
 
 async def main():
     start = time.perf_counter()
     url = "https://logs.eolem.com/"
-    response = requests.get(url,verify=False)
+    
+    queue_download = asyncio.Queue()
+    queue_save = asyncio.Queue()
 
-    # print(response.text)
+    nb_download_workers = 10
+    nb_save_workers = 5
+
+    response = requests.get(url,verify=False)
     soup = BeautifulSoup(response.text, 'html.parser')
     all_a = [a['href'] for a in soup.find_all('a') if a['href'].endswith('.log')]
 
-    all_coroutines=[]
-    for log_file in all_a:
-        all_coroutines.append(async_httpx_download_and_save(url,log_file))
+    tasks = []
+    for i in range(nb_download_workers):
+        t = asyncio.create_task(download(queue_download,queue_save))
+        tasks.append(t)
 
-    await asyncio.gather(*all_coroutines)
+    for i in range(nb_save_workers):
+        t = asyncio.create_task(save(queue_save))
+        tasks.append(t)
 
+    for a in all_a:
+        param = url,a
+        queue_download.put_nowait(param)
 
+    await queue_download.join()
+    await queue_save.join()
 
+    [t.cancel() for t in tasks]
 
     end = time.perf_counter()
     print(f"{end-start:.3}s")
