@@ -1,5 +1,11 @@
 # Python, perfectionnement du 23/06
 
+ceci est une liste:
+- [ ] Python
+- [ ] perfectionnement
+- [ ] 23/06
+
+
 ## Lien émargement
 https://docadmin.orsys.fr/
 c5crt3gNk
@@ -164,7 +170,7 @@ def index():
 ## Emmet
 ```
 div#toto.tutu.tata>ul>li*3
-
+```
 
 
 https://getbootstrap.com/
