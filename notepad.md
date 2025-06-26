@@ -1,11 +1,5 @@
 # Python, perfectionnement du 23/06
 
-ceci est une liste:
-- [ ] Python
-- [ ] perfectionnement
-- [ ] 23/06
-
-
 ## Lien émargement
 https://docadmin.orsys.fr/
 c5crt3gNk
@@ -150,7 +144,7 @@ docker ps
 https://flask.palletsprojects.com/en/stable/quickstart/
 
 https://flask.palletsprojects.com/en/stable/installation/
-```python
+
 @app.route("/")
 def index():
     html="<table>"
@@ -166,11 +160,9 @@ def index():
         </tr>"""
     html+="</table>"
     return html
-```
+    
 ## Emmet
-```
 div#toto.tutu.tata>ul>li*3
-```
 
 
 https://getbootstrap.com/
@@ -188,9 +180,26 @@ https://docs.streamlit.io/get-started/installation
 
 
 
+streamlit run main_streamlit.py
+
+
 https://docs.streamlit.io/develop/api-reference/widgets/st.text_input
 
 
 https://fastapi.tiangolo.com/#installation
+
+
+https://www.usebruno.com/
+https://www.postman.com/
+https://insomnia.rest/
+
+https://colab.research.google.com/notebooks/
+
+pip install numpy pandas scikit-learn matplotlib
+
+https://www.youtube.com/c/MachineLearnia
+
+
+
 
 

@@ -1,8 +1,6 @@
-
-
 from pydantic import BaseModel,field_validator
 
-class Customer(BaseModel):
+class CustomerPydantic(BaseModel):
     id:int
     first_name:str
     last_name:str
@@ -16,10 +14,3 @@ class Customer(BaseModel):
             raise ValueError("Email error")
         return v
     
-
-def main():
-    c = Customer(id=1,first_name="Fred",last_name="GAURAT",email="toto@truc.com",gender="Male",ip_address="12.12.12.12")
-    print(c)
-
-if __name__ == '__main__':
-    main()

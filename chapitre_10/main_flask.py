@@ -3,6 +3,7 @@ from CustomerDAO import CustomerDAO
 app = Flask(__name__)
 
 # flask run
+# flask --app main_flask.py run   
 # flask run --debug
 @app.route("/hello")
 def hello_world():
