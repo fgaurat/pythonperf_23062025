@@ -1,11 +1,15 @@
 # Python, perfectionnement du 23/06
 
-## Lien émargement
-https://docadmin.orsys.fr/
-c5crt3gNk
+
 
 
 https://github.com/fgaurat/pythonperf_23062025
+
+## Vidéo 1
+https://youtu.be/6MhwWAVqEuo
+
+## Vidéo 2
+https://youtu.be/41iwWUi8jfE
 
 Frédéric Gaurat
 
